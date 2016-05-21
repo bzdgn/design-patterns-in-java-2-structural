@@ -1,0 +1,65 @@
+CONCEPTS;
+*********
+
+- More efficient use of memory
+- Large number of similiar objects
+- Immutable
+- Most of the object states can be extrinsic
+- Examples: java.lang.String, java.lang.Integer#valueOf(int)
+          : Boolean, Byte, Character, Short, Long
+
+DESIGN;
+*******
+
+ ********************************                ********************************
+ *       FlyweightFactory       *                *          Flyweight           *
+ *______________________________*                *______________________________*
+ *                              *--------------->*                              *
+ *       getFlyweight(key)      *                *         operation()          *  
+ *                              *                *                              *
+ ********************************                ********************************
+                ^                                                ^
+                |                                                |
+                |                                                |
+                |                                                |   
+                |                                                |     
+                |                                                |     
+                |                                                |     
+ ********************************                ********************************
+ *            Client            *                *      ConcreteFlyweight       *
+ *______________________________*                *______________________________*
+ *                              *--------------->*                              *
+ *                              *                *         operation()          * 
+ *                              *                *                              *
+ ********************************                ********************************
+
+- Pattern of patterns
+- Utilizes a Factory
+- Encompasses Creation and Structure
+- Client, Factory, Flyweight, ConcreteFlyweight
+
+Pitfalls
+********
+- Complex pattern
+- Premature optimization
+- Must understand Factory
+- Not a graphical pattern
+
+Flyweight vs. Facade
+********************
+	Flyweight;
+	- Focused on Memory Optimization
+	- Optimization Pattern
+	- Deals with Immutable Objects
+	
+	Facade;
+	- Refactoring Pattern
+	- Something that is thought of after the fact
+	- Simplified Client
+	- Provides a different interface
+	
+Summary
+*******
+- Great for Memory Management
+- A little bit complex
+- Used a lot by the core API

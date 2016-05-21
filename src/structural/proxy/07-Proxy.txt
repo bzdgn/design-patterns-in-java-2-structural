@@ -1,0 +1,65 @@
+CONCEPTS;
+*********
+
+- Interface by wrapping
+- Can add functionality
+- Security, Simplicity, Remote, Cost
+- Proxy called to access real object
+- Examples: java.lang.reflect.Proxy, java.rmi.* 
+
+DESIGN;
+*******
+
+ ********************************                ********************************
+ *             Client           *--------------> *            Subject           *
+ *______________________________*                *______________________________*
+ *                              *                *                              *          
+ *                              *                *           doAction()         *
+ *                              *         -----> *                              * <--------
+ ********************************         |      ********************************          |
+                                          |                                                |
+                                          |                                                |
+                                          |                                                |
+                                          |                                                |   
+                                          |                                                |     
+                                          |                                                |     
+                                          |                                                |     
+                           ********************************                ********************************
+                           *             Proxy            *                *          RealSubject         *
+                           *______________________________*                *______________________________*
+                           *                              *--------------->*                              *
+                           *           doAction()         *                *           doAction()         * 
+                           *                              *                *                              *
+                           ********************************                ********************************
+
+- The basis for Proxy is an intermediary object that intercapt calls
+- Interface based
+- Interface and Implementation Class
+- java.lang.reflect.InvocationHandler
+- java.lang.reflect.Proxy
+- Client, Interface, InvocationHandler, Proxy Implementation
+
+Pitfalls
+********
+- Only one proxy
+- Adds another abstraction layer
+- Similiar to other patterns : Hard to identify
+
+Proxy vs. Decorator
+*******************
+	Proxy;
+	- Can add functionality but not its main purpose
+	- Can be only one instance
+	- Functionality is set at compile time
+	
+	Decorator;
+	- Dynamically add functionality
+	- Chained pattern
+	- Decorator points to its own type
+	- Functionality is determined at runtime
+	
+Summary
+*******
+- Great utilities built into Java API
+- Only one instance
+- Used by DIJ/IOC Frameworks

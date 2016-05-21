@@ -1,0 +1,82 @@
+CONCEPTS;
+*********
+
+- Plug adapter
+- Convert interface into another interface
+	: Choose adapter pattern when you want to have a client
+	: to talk to an existing interface.
+- Legacy
+	: If you have a legacy code that you can't modify, you
+	: will need an adapter pattern that translates request
+	: from one interface to another
+- Translates requests
+- Client, Adapte, Adaptee
+- Examples: Collections API in Java;
+	- Arrays -> Lists
+	- Streams
+
+DESIGN;
+*******
+
+********************************
+*            Client            *
+*______________________________*
+*                              *
+*______________________________*
+* + doSomething()              *
+********************************
+              ^
+              |
+              |
+********************************
+*        <<interface>>         *
+*           Adapter            *
+*______________________________*
+*                              *
+*______________________________*
+* + doThis()                   *
+********************************
+              ^
+              |
+              |
+********************************
+*        Legacy Product        *
+*______________________________*
+*                              *
+*______________________________*
+* + doThat()                   *
+********************************
+
+- Client centric
+- Integrate new with old
+- Interface, but not required
+- Adaptee can be the implementation
+
+Pitfalls
+********
+- Not a lot !
+- Don't complicate
+- Multiple Adapters
+- Don't add functionality
+
+Adapter vs. Bridge
+******************
+	Adapter;
+	- Works after code is designed
+	- Dealing with Legacy code
+	- Retrofitted to make unrelated class work together
+	- Provides different interface to legacy code that was originally intended
+	
+	Bridge;
+	- Designed upfront to let abstraction
+	- Abstraction and implementation vary
+	- Build in advance to let both systems be flexible 
+	
+- Both the Adapter and the Bridge adapt multiple systems
+
+Summary
+*******
+- Simple solution to a very discrete problem
+- Easy to implement
+- Typically used to integrate legacy code that we can't modify
+- Can provide mutliple adapters

@@ -1,0 +1,77 @@
+CONCEPTS;
+*********
+
+- Components represent part or whole structure
+- Compose objects into tree structures
+- Individual object treated as a Composite
+	: Configuring objects into tree strucutures.
+- Same operations applied on individul and composites
+	: Once data is built this way, you can treat individual objects the same as
+	: a composite object. In treating objects the same, we can apply operations
+	: or functions on both the individual and the composite and expect them to
+	: work the same way.
+- Examples: java.awt.Component, JSD Widgets, RESTful service GETs
+
+DESIGN;
+*******
+
+                 ********************************
+                 *           Component          *
+                 *______________________________* <------------------------|
+                 *                              *                          |
+                 *______________________________*                          |
+                 *          operation()         *                          |
+                 ********************************                          |
+                        ^                  ^                               |
+                        |                  |                               |
+                        |                  |                               |
+********************************    ********************************       |
+*             Leaf             *    *           Composite          *       |
+*______________________________*    *______________________________*<------|
+*          operation()         *    *          operation()         *
+********************************    *             add()            *
+                                    *            remove()          *
+                                    *           getChild()         *
+                                    ********************************
+									
+- Tree Structured
+	: It will utilize Interfaces and Abstract classes
+- Component
+- Leaf or Composite, same operations
+- Composite knows about child objects
+- Component, Leaf, Composite
+
+Pitfalls
+********
+- It can overly simplify system
+- Difficult to restrict
+- Implementation can be possibly be costly
+	: If dealing with very large composite or if implemented incorrectly. This doesn't
+	: have to always be the case but if child objects are held in a collection and
+	: each object itself contains a collection, its size can grow fairly quickly.
+	: But typicall composites aren't that big though and it's not a real practical issue.
+
+Composite vs. Decorator
+***********************
+	Composite;
+	- Tree structure
+	- Leaf and Composite have same interface
+	- Provides a unity between objects
+	
+	Decorator;
+	- Contains another entity
+		: This may sound like a composite but it is really just composition.
+		: Composition is just an object containing another one. It differs in that
+		: the decorator modifies the behaviour of the contained entity. This is usually
+		: adding functionality to an entity that it didn't originally have.
+	- Doesn't change underlying object
+		: It decorates the underlying object but doesn't necessarily change it.
+	
+Summary
+*******
+- Generalizes a hierarchical structure
+- Can simplify things too much
+	: Harder to restrict what's getting added to a menu and you can sometimes have to rely on
+	: runtime checks.
+- Easier for clients
+- Composite != Composition

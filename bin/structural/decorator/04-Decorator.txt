@@ -1,0 +1,86 @@
+CONCEPTS;
+*********
+
+- Also called a wrapper
+- Add behaviour without affecting others
+- More than just inheritance
+- Single Responsibility Principle
+- Compose behaviour dynamically
+- Examples: java.io.InputStream, java.util.Collections#checkedList, UI components
+
+DESIGN;
+*******
+
+                  ********************************
+                  *           Component          *
+                  *______________________________* <-------------------------|
+                  *                              *                           |
+                  *          operation()         *                           |
+                  *                              *                           |
+                  ********************************                           |
+                                  ^                                          |
+                                  |                                          |
+                                  |                                          |
+                         _________|_________                                 |
+                        |                   |                                |
+                        |                   |                                |
+                        |                   |                                |
+ ********************************     ********************************       |
+ *      ConcreteComponent       *     *           Decorator          *       |
+ *______________________________*     *______________________________*<------|
+ *                              *     *                              *
+ *          operation()         *     *         - component          *
+ *                              *     *                              *
+ ********************************     *______________________________*
+                                      *                              *
+                                      *        + operation()         *
+                                      *                              *
+                                      ********************************
+                                                      ^
+                                                      |
+                                                      |
+                                      ********************************
+                                      *       ConcreteDecorator      *
+                                      *______________________________*
+                                      *                              *
+                                      *                              *
+                                      *                              *
+                                      *______________________________*
+                                      *                              *
+                                      *        + operation()         *
+                                      *                              *
+                                      ********************************
+- Inheritance based
+- Utilizes composition and inheritance(is-a, has-a)
+- Alternative to subclassing
+- Constructor requires instance from hierarchy
+
+Pitfalls
+********
+- New class for every feature added
+- Multiple little objects
+- Often confused with simple inheritance
+
+Decorator vs. Composite
+***********************
+	Decorator;
+	- Contains another entity
+		: This may sound like a composite but it is really just composition.
+		: Composition is just an object containing another one. It differs in that
+		: the decorator modifies the behaviour of the contained entity. This is usually
+		: adding functionality to an entity that it didn't originally have.
+	- Modifies behaviour (adds)
+	- Doesn't change underlying object
+		: It decorates the underlying object but doesn't necessarily change it.
+	
+	Composite;
+	- Tree structure
+	- Leaf and Composite have same interface
+	- Provides a unity between objects
+	
+Summary
+*******
+- Original object can stay the same
+- Unqiue way to add functionality
+- Confused with inheritance
+- Can be more complex for clients

@@ -1,0 +1,72 @@
+CONCEPTS;
+*********
+
+- Decouple Abstraction and implementations
+- To do this, you utilize a few techniques
+	: Encapsulation, Compoition, Inheritance
+- Changes in Abstraction won't affect client
+	: The client is unaware of the abstraction on the back-end
+	: This is important because this decouples implementation from the
+	: Contract or interface that the client is using
+- Details won't be right to begin with
+	: Bridge allows a level of indirecion that we add into our application.
+	: If you aren't quite sure of what the end product of what you are building
+	: will be, the bridge is great for giving us flexibility without breaking
+	: things with change.
+- Examples: Drivers in general.
+	: Examples in Java API: Drivers, JDBC
+
+DESIGN;
+*******
+
+********************************                          ********************************
+*          Abstraction         *                          *         Implementor          *
+*______________________________* <----------------------- *______________________________*
+*                              *                          *                              *
+*______________________________*                          *______________________________*
+*          operation()         *                          *        operationImpl()       *
+********************************                          ********************************
+              ^                                                  ^                  ^
+              |                                                  |                  |
+              |                                                  |                  |
+********************************         ********************************    ********************************
+*                              *         *    ConcreteImplementatorA    *    *    ConcreteImplementatorB    *
+*      RefinedAbstraction      *         *______________________________*    *______________________________*
+*                              *         *        operationImpl()       *    *        operationImpl()       *
+********************************         ********************************    ********************************
+
+- Bridge is more complicated than The Adapter
+	: It will utilize Interfaces and Abstract classes
+- It also places an emphasis on composition over inheritance, but it is more than just composition.
+- Expect change from both sides
+- Diagram: Abstraction, Implementor, Regined Abstraction, Concrete Implementator
+
+Pitfalls
+********
+- Increases complexity
+- Conceptually difficult to plan
+- More than just OO : More than just inheritance and abstraction
+- It can just be a little confusing as to what goes where in your code
+
+Bridge vs. Adapter
+******************
+	Bridge;
+	- Designed upfront
+	- Abstraction and implementation vary
+	- Build in advance to let both systems be flexible 
+	- More complex
+	
+	Adapter;
+	- Works after code is designed
+	- Dealing with Legacy code
+	- Retrofitted to make unrelated class work together
+	- Provides different interface to legacy code that was originally intended
+	
+Summary
+*******
+- Design for uncertainity
+- Can be complex
+	: So we will take that complexity because it gives us flexibility so it heps us in designing for the
+	  uncertainity of what we might do inside of our application.
+- Provides flexibility
+- Much more than composition

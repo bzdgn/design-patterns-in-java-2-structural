@@ -1,0 +1,62 @@
+CONCEPTS;
+*********
+
+- Make an API easier to use
+- Reduce dependencies on outside code
+- Simplify the interface or client usage
+- Usually a refactoring pattern
+- Examples: java.net.URL, javax.faces.context.FacesContext
+
+DESIGN;
+*******
+
+                  ********************************
+                  *            Facade            *
+                  *______________________________*
+                  *                              *
+                  *         doSomething()        *
+                  *                              *
+                  ********************************
+                                  ^               
+                                  |               
+                                  |               
+                         _________|_________      
+                        |                   |     
+                        |                   |     
+                        |                   |     
+ ********************************     ********************************
+ *          Package #1          *     *          Package #2          *
+ *______________________________*     *______________________________*
+ *                              *     *                              *
+ *                              *     *                              * 
+ *                              *     *                              *
+ ********************************     ********************************
+
+- Class that utilizes compotision
+- Shouldn't have need for inheritance
+- Typically encompasses full lifecycle
+
+Pitfalls
+********
+- Typically used to clean up code
+- Should think about API design
+- Flat problem/structure
+- The "Singleton" of Structural Pattern
+
+Facade vs. Adapter
+******************
+	Facade;
+	- Simplifies Interface
+	- Works with composites
+	- Cleaner API
+	
+	Adapter;
+	- Also a refactoring pattern
+	- Modifies behaviour (adds)
+	- Provides a different interface
+	
+Summary
+*******
+- Simplifies Client Interface
+- Easy Pattern to implement
+- Refactoring Pattern
